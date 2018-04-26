@@ -31,7 +31,7 @@ var numericalAxis = {
             answer = document.querySelector(".answer");
         answer.value = "";
         answer.placeholder = "?";
-        document.querySelector(".task").innerHTML = numberA + " + " + numberB + " = ";
+        document.querySelector(".task").innerHTML = "<span class='first-highlight'>" + numberA + "</span>" + " + " + "<span class='second-highlight'>" + numberB + "</span>" + " = ";
         wrapper.appendChild(firstArrow);
         firstInput.style.left = firstArrow.offsetWidth / 2 + 33 + "px";
         wrapper.appendChild(firstInput);
@@ -42,6 +42,7 @@ var numericalAxis = {
                 firstInput.style.border = "none";
                 firstInput.style.background = "none";
                 firstInput.style.textShadow = "0 0 0 #000";
+                document.querySelector(".first-highlight").style.backgroundColor = "#fff";
                 secondArrow.style.left = firstArrow.offsetWidth + 33 + "px";
                 wrapper.appendChild(secondArrow);
                 secondInput.style.left = firstArrow.offsetWidth + secondArrow.offsetWidth / 2 + 33 + "px";
@@ -53,6 +54,7 @@ var numericalAxis = {
                         secondInput.style.border = "none";
                         secondInput.style.background = "none";
                         secondInput.style.textShadow = "0 0 0 #000";
+                        document.querySelector(".second-highlight").style.backgroundColor = "#fff";
                         answer.style.pointerEvents = "auto";
                         answer.placeholder = "";
                         answer.style.border = "2px solid #bbb";
@@ -79,10 +81,12 @@ var numericalAxis = {
                         };
                     } else {
                         secondInput.style.textShadow = "0 0 0 #f00";
+                        document.querySelector(".second-highlight").style.backgroundColor = "#fc0";
                     }
                 };
             } else {
                 firstInput.style.textShadow = "0 0 0 #f00";
+                document.querySelector(".first-highlight").style.backgroundColor = "#fc0";
             }
         };
     }
